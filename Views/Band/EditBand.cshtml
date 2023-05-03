@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Editar Bandas";
+}
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<form>
+    <div class="mb-3">
+        <label for="bandName" class="form-label">Nome da banda</label>
+        <input type="text" class="form-control" id="bandName" placeholder="Insira o nome da banda" />
+    </div>
+    <div class="mb-3">
+        <label for="bandGenre" class="form-label">Gênero da banda</label>
+        <input type="text" class="form-control" id="bandGenre" placeholder="Insira o gênero da banda" />
+    </div>
+    <div class="mb-3">
+        <label for="bandYear" class="form-label">Ano de formação</label>
+        <input type="text" class="form-control" id="bandYear" placeholder="Insira o ano que a banda foi formada" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Editar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Band" asp-action="Index">Voltar</a>
+</form>

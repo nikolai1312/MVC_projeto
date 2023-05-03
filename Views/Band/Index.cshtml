@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Lista de Bandas";
+}
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button" asp-controller="Band" asp-action="CreateBand">Adicionar nova banda</a>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Gênero</th>
+                <th scope="col">Ano</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Metallica</td>
+                <td>Metal</td>
+                <td>1980</td>
+                <td>
+                    <a role="button" class="btn btn-primary" asp-controller="Band" asp-action="EditBand">Editar</a>
+                </td>
+                <td>    
+                    <a role="button" class="btn btn-danger" asp-controller="Band" asp-action="DeleteBand">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Djavan</td>
+                <td>MPB</td>
+                <td>1968</td>
+                <td>
+                    <a role="button" class="btn btn-primary" asp-controller="Band" asp-action="EditBand">Editar</a>
+                </td>
+                <td>
+                    <a role="button" class="btn btn-danger" asp-controller="Band" asp-action="DeleteBand">Apagar</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Terveet Kadet</td>
+                <td>Punk</td>
+                <td>1978</td>
+                <td>
+                    <a role="button" class="btn btn-primary" asp-controller="Band" asp-action="EditBand">Editar</a>
+                </td>
+                <td>
+                    <a role="button" class="btn btn-danger" asp-controller="Band" asp-action="DeleteBand">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
