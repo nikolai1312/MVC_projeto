@@ -3,9 +3,9 @@ using MVC_projeto.Models;
 
 namespace MVC_projeto.Database
 {
-    public class BandDBContext : DbContext 
+    public class BandDbcontext : DbContext
     {
-        BandDBContext(DbContextOptions<BandDBContext> options) : base(options)
+        public BandDbcontext(DbContextOptions options) : base(options)
         {
 
         }

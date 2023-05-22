@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MVC_projeto.Database;
+using MVC_projeto.Interfaces;
+using MVC_projeto.Repository;
 using System.Configuration;
 
 public class Program
@@ -11,6 +13,11 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
+        builder.Services.AddScoped<IBandRepository, BandRepository>();
+
+        builder.Services.AddDbContext<BandDbcontext>(options =>
+            options.UseMySQL("Server=localhost;Port=3306;Database=Band;Uid=root;Pwd=pwdnicolas2917;"));
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -21,18 +28,6 @@ public class Program
             app.UseHsts();
         }
 
-        string projectPath = AppDomain.CurrentDomain.BaseDirectory.Split(new String[] { @"bin\" }, StringSplitOptions.None)[0];
-
-        var configuration = new ConfigurationBuilder()
-            .SetBasePath(projectPath)
-            .AddJsonFile("appsettings.json")
-            .Build();
-
-       var connectionString = configuration.GetConnectionString("BDcrud");
-
-        builder.Services.AddDbContext<BandDBContext>(options =>
-            options.UseMySQL(connectionString)
-            );
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

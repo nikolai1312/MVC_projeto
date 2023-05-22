@@ -1,22 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Editar Bandas";
+﻿@model BandModel
+@{
+    ViewData["Title"] = "Editar Banda";
 }
 <div class="text-center">
     <h1>@ViewData["Title"]</h1>
 </div>
 
-<form>
+<form asp-controller="Band" asp-action="EditBand" method="post">
+
+    <input type="hidden" asp-for="Id"/>
     <div class="mb-3">
         <label for="bandName" class="form-label">Nome da banda</label>
-        <input type="text" class="form-control" id="bandName" placeholder="Insira o nome da banda" />
+        <input type="text" asp-for="BandName" class="form-control" id="bandName" placeholder="Insira o nome da banda" />
+        @Html.ValidationMessageFor(x => x.BandName)
+        
     </div>
     <div class="mb-3">
         <label for="bandGenre" class="form-label">Gênero da banda</label>
-        <input type="text" class="form-control" id="bandGenre" placeholder="Insira o gênero da banda" />
+        <input type="text" asp-for="BandGenre" class="form-control" id="bandGenre" placeholder="Insira o gênero da banda" />
+        @Html.ValidationMessageFor(x => x.BandGenre)
+        
     </div>
     <div class="mb-3">
         <label for="bandYear" class="form-label">Ano de formação</label>
-        <input type="text" class="form-control" id="bandYear" placeholder="Insira o ano que a banda foi formada" />
+        <input type="text" asp-for="BandYear" class="form-control" id="bandYear" placeholder="Insira o ano que a banda foi formada" />
+        @Html.ValidationMessageFor(x => x.BandYear)
+        
     </div>
 
     <button type="submit" class="btn btn-primary btn-block">Editar</button>
